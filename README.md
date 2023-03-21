@@ -1,2 +1,2 @@
 # session
-infra.go session module.
+infra.Go session module.
