@@ -15,11 +15,11 @@ type (
 		Open() error
 		Close() error
 
-		Read(string) ([]byte, error)
+		Read(id string) ([]byte, error)
 		Write(id string, val []byte, expiry time.Duration) error
 		Exists(id string) (bool, error)
 		Delete(id string) error
-		Keys() ([]string, error)
-		Clear() error
+		Keys(prefix string) ([]string, error)
+		Clear(prefix string) error
 	}
 )
