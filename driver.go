@@ -16,7 +16,7 @@ type (
 		Close() error
 
 		Read(id string) ([]byte, error)
-		Write(id string, val []byte, expiry time.Duration) error
+		Write(id string, val []byte, expire time.Duration) error
 		Exists(id string) (bool, error)
 		Delete(id string) error
 		Keys(prefix string) ([]string, error)

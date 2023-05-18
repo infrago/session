@@ -50,16 +50,16 @@ func (this *Module) Read(id string) (Map, error) {
 }
 
 // Write 写会话
-func (this *Module) Write(id string, val Map, expiries ...time.Duration) error {
+func (this *Module) Write(id string, val Map, expires ...time.Duration) error {
 	inst, err := this.getInst(id)
 	if err != nil {
 		return err
 	}
 
 	//默认超时时间
-	expiry := inst.Config.Expiry
-	if len(expiries) > 0 {
-		expiry = expiries[0]
+	expire := inst.Config.Expire
+	if len(expires) > 0 {
+		expire = expires[0]
 	}
 
 	// 编码数据
@@ -70,7 +70,7 @@ func (this *Module) Write(id string, val Map, expiries ...time.Duration) error {
 
 	//KEY加上前缀
 	realid := inst.Config.Prefix + id
-	return inst.connect.Write(realid, data, expiry)
+	return inst.connect.Write(realid, data, expire)
 }
 
 // Delete 删除会话

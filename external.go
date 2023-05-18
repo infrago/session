@@ -12,8 +12,8 @@ func Read(id string) (Map, error) {
 }
 
 // Write 写会话
-func Write(id string, value Map, expiries ...time.Duration) error {
-	return module.Write(id, value, expiries...)
+func Write(id string, value Map, expires ...time.Duration) error {
+	return module.Write(id, value, expires...)
 }
 
 // Delete 删除会话
